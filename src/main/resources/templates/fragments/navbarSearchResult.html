@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="searchResult">
+    <div class="col" id="navbarSearchResult">
+        <div class="row border">
+            <div class="col border-bottom border ml-auto bg-dark text-white">authorName</div>
+            <div class="col border-bottom border ml-auto bg-dark text-white">comment</div>
+            <div class="col border-bottom border ml-auto bg-dark text-white">rating</div>
+        </div>
+            <th:block th:each="comment : ${comments}">
+                <div class="row border">
+                <div class="col border-bottom border ml-auto flex-column"  th:text="${comment.authorName}"></div>
+                <div class="col border-bottom border ml-auto flex-column"  th:text="${comment.comment}"></div>
+                <div class="col border-bottom border ml-auto flex-column"  th:text="${comment.rating}"></div>
+                </div>
+            </th:block>
+
+    </div>
+</th:block>
+</body>
+</html>

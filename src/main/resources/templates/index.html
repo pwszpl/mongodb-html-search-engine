@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MongoDB Html Search Engine</title>
+
+    <link th:rel="stylesheet" th:href="@{/assets/summernote/summernote-bs4.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+         .spacer {
+            padding-top: 20px;
+            padding-bottom: 20px
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">MongoDB Html Search Engine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="spacer" />
+    <div class="row">
+        <div class="col-md-9">
+            <input type="text" id="searchInput" autocomplete="off" class="form-control" placeholder="Search comments..."/>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" type="submit" onclick="find()" >Search</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary" type="submit" data-toggle="modal" data-target="#exampleModal" >New comment</button>
+        </div>
+    </div>
+    <div class="spacer" />
+    <div class="row">
+        <div th:replace="fragments/navbarSearchResult.html :: searchResult"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:object="${comment}" th:action="@{/index.html}" method="post">
+                    <div class="form-group">
+                        <label for="author" class="col-form-label">Author:</label>
+                        <input type="text" class="form-control" id="author" th:field="*{authorName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="col-form-label">Comment:</label>
+                        <textarea class="form-control" id="comment" th:field="*{comment}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating" class="col-form-label">Rating:</label>
+                        <textarea class="form-control" id="rating" th:field="*{rating}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add comment</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+            function find() {
+                var query = document.getElementById('searchInput').value;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/find");
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState === XMLHttpRequest.DONE) {
+                        var status = xhr.status;
+                        if (status === 0 || (status >= 200 && status < 400)) {
+                            $("#navbarSearchResult").replaceWith(xhr.responseText);
+                        }
+                    }
+                };
+                xhr.send(query);
+            }
+</script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
