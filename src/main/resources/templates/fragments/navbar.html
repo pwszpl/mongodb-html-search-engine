@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Navigation -->
+<th:block th:fragment="navBar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+        <div class="container">
+            <div class="col-md-9">
+                <a class="navbar-brand" href="/index.html">MongoDB Html Search Engine</a>
+            </div>
+            <div class="col-md-1">
+                <a class="navbar-brand" href="/about.html">About</a>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-primary" data-toggle="collapse" href="#about" role="button" aria-expanded="false" aria-controls="about">Help</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="spacer" />
+        <div class="row collapse border" id="about">
+            <div class="col ">
+                This web app is an example for usage of <a target="_blank" href="https://github.com/pwszpl/mongodb-search-query-translator" class="link-primary">Mongo DB seach query translator</a>.
+                It allows you to search through objects in test collection.
+                Example search phrases:
+                <ul>
+                    <li>authorName = 'critic1'</li>
+                    <li>rating > 5</li>
+                    <li>comment like '.*need.*'</li>
+                </ul>
+                Full syntax is available in link above.
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/footer.html :: header"></head>
+<body>
+<div th:replace="fragments/navbar.html :: navBar"></div>
+
+<div class="container">
+    <div class="row">
+        <dic class="col">
+            <p>This application is quick a demo for <a target="_blank" href="https://github.com/pwszpl/mongodb-search-query-translator" class="link-primary">Mongo DB seach query translator</a>.</p>
+            <p>Feel free to modify and test this application in any way you want, but remember it is not production ready ;)</p>
+            <p>Application comes with built in Mongo Database. If you want to connect to this database with external tools, connection string was outputed in application log. </p>
+            <p>If you want to learn more about translator, or add it to your own project, please follow instructions in transtalor repository.</p>
+            <p>If you have any suggestions or issues, (either to this application or translator itself) please create ticket in matching GitHub project.</p>
+        </dic>
+    </div>
+    <div class="spacer" />
+    <div class="row">
+        <div class="col">
+            <p><span class="font-weight-bold">Created by:</span> <a target="_blank" href="https://github.com/pwszpl">pwszpl</a></p>
+            <p><span class="font-weight-bold">Source code for this application:</span> <a target="_blank" href="https://github.com/pwszpl/mongodb-html-search-engine">https://github.com/pwszpl/mongodb-html-search-engine</a></p>
+            <p><span class="font-weight-bold">Source code for translator:</span> <a target="_blank" href="https://github.com/pwszpl/mongodb-search-query-translator">https://github.com/pwszpl/mongodb-search-query-translator</a></p>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer.html :: footer"></div>
+</body>
+</html>

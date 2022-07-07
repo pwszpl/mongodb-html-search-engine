@@ -2,12 +2,12 @@ package io.github.pwszpl.mongo;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import io.github.pwszpl.Application;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import io.github.pwszpl.Application;
 
 
 @Configuration

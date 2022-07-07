@@ -15,6 +15,9 @@ public class Application {
     public static void main(String[] args){
         mongo.start();
         populateDBWithDefaultData();
+        System.out.println("Database connection string: ");
+        System.out.println(mongo.getConnectionString());
+
         SpringApplication.run(SpringApp.class,args);
     }
 

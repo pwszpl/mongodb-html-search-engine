@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Footer -->
+<th:block th:fragment="footer">
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</th:block>
+<th:block th:fragment="header">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>MongoDB Html Search Engine</title>
+
+        <link th:rel="stylesheet" th:href="@{/assets/summernote/summernote-bs4.css}"/>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+         .spacer {
+            padding-top: 20px;
+            padding-bottom: 20px
+        }
+    </style>
+    </head>
+</th:block>
+</body>
+</html>

@@ -3,6 +3,9 @@
 <body>
 <th:block th:fragment="searchResult">
     <div class="col" id="navbarSearchResult">
+        <th:block th:if="${searchError != null}">
+            <div class="row bg-danger text-white" th:text="${searchError}"></div>
+        </th:block>
         <div class="row border">
             <div class="col border-bottom border ml-auto bg-dark text-white">authorName</div>
             <div class="col border-bottom border ml-auto bg-dark text-white">comment</div>
