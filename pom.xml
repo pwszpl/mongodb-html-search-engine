@@ -25,7 +25,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mongo.driver.version>4.6.0</mongo.driver.version>
-        <springboot.version>2.6.2</springboot.version>
+        <springboot.version>2.6.6</springboot.version>
         <testcontainers.version>1.17.3</testcontainers.version>
         <bootstrap.version>4.0.0-2</bootstrap.version>
         <webjars-locator.version>0.45</webjars-locator.version>
